@@ -15,7 +15,6 @@ var Queue = function(){
   someInstance.dequeue = function(){
     var result = storage[0];
     delete storage[0];
-    // if call dequeue when size 0 then return 0
     if (size === 0) {
       return 0;
     }
