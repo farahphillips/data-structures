@@ -30,14 +30,44 @@ treeMethods.insert = function (val) {
   recursion(this);
 };
 
-treeMethods.contains = function (value) {
+treeMethods.contains = function(val) {
+var result = false;
+
+var recursion = function(parent) {
+ if (val === parent.value) {
+   result = true;
+ } else {
+   if (val < parent.value) {
+     if (parent.left) {
+       recursion(parent.left);
+     }
+   }
+   if (val > parent.value) {
+     if (parent.right) {
+       recursion(parent.right);
+     }
+   }
+ }
+}
+
+recursion(this);
+return result;
 
 // go through each level and see if key in object === true, return true, else return false
-
-
 };
 
-treeMethods.depthFirstLog = function (cb, value) {
+treeMethods.depthFirstLog = function (cb) {
+
+var recursion = function(parent) {
+  cb(parent.value);
+
+  if (parent.left) {
+
+  }
+
+}
+
+recursion(this);
 
 };
 
